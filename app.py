@@ -2,6 +2,20 @@ import streamlit as st
 import pickle
 import pandas as pd
 import numpy as np
+st.set_page_config(
+    page_title="IPL Win Predictor",
+    page_icon="🏏",
+    layout="wide"
+)
+
+st.markdown("""
+    <style>
+    .stApp {
+        background-color: #0E1117;
+        color: white;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # Load saved files
 model = pickle.load(open("model.pkl", "rb"))
@@ -62,4 +76,5 @@ if st.button("Predict"):
     st.subheader("Winning Probability")
 
     st.success(f"{batting_team}: {round(probability[1]*100,2)}%")
+
     st.error(f"{bowling_team}: {round(probability[0]*100,2)}%")
