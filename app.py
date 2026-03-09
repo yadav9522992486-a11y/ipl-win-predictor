@@ -2,6 +2,18 @@ import streamlit as st
 import pickle
 import pandas as pd
 import numpy as np
+st.set_page_config(page_title="IPL Predictor", layout="wide")
+
+st.markdown("""
+<style>
+.block-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+</style>
+""", unsafe_allow_html=True)
 st.set_page_config(
     page_title="IPL Win Predictor",
     page_icon="🏏",
@@ -78,3 +90,4 @@ if st.button("Predict"):
     st.success(f"{batting_team}: {round(probability[1]*100,2)}%")
 
     st.error(f"{bowling_team}: {round(probability[0]*100,2)}%")
+
